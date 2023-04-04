@@ -4,6 +4,8 @@ require("dotenv").config();
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 
+app.use(express.json());
+
 const port = process.env.PORT || 3000;
 
 const httpServer = createServer();
@@ -21,6 +23,8 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log("a user connected: ", socket.id);
+  io.emit("connected", socket.id);
+  socket.on("userId", (data) => io.emit("userConnected", data));
 });
 
 io.on("connect_error", (err) => {
