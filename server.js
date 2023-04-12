@@ -25,10 +25,21 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+let peerList = [];
+
 io.on("connection", (socket) => {
   console.log("a user connected: ", socket.id);
   io.emit("connected", socket.id);
-  socket.on("userId", (data) => io.emit("userConnected", data));
+  socket.on("userId", (data) => {
+    peerList.push(data);
+    console.log(peerList);
+    io.emit("userConnected", peerList);
+    socket.on("disconnect", () => {
+      peerList = peerList.filter((peer) => peer != data);
+      io.emit("userConnected", peerList);
+      console.log(peerList);
+    });
+  });
 });
 
 io.on("connect_error", (err) => {
