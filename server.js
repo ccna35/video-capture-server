@@ -12,7 +12,11 @@ const httpServer = createServer();
 
 const io = new Server(httpServer, {
   cors: {
-    origin: ["http://127.0.0.1:5500", "http://127.0.0.1:5500/"],
+    origin: [
+      "http://127.0.0.1:5500",
+      "http://127.0.0.1:5500/",
+      "https://ccna35.github.io",
+    ],
     methods: ["GET", "POST"],
   },
 });
