@@ -4,8 +4,8 @@
   "description": "A server for the video call app",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "build": "npm install"
   },
   "author": "Shawky Khalil",
