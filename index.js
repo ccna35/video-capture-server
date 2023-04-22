@@ -16,6 +16,7 @@ const io = new Server(httpServer, {
       "http://127.0.0.1:5500",
       "http://127.0.0.1:5500/",
       "https://ccna35.github.io",
+      "https://video-capture-kappa.vercel.app/",
     ],
     methods: ["GET", "POST"],
   },
@@ -45,10 +46,6 @@ io.on("connection", (socket) => {
 io.on("connect_error", (err) => {
   console.log(`connect_error due to ${err.message}`);
 });
-
-// server.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`);
-// });
 
 httpServer.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
