@@ -17,6 +17,7 @@ const io = new Server(httpServer, {
       "http://127.0.0.1:5500/",
       "https://ccna35.github.io",
       "https://video-capture-kappa.vercel.app/",
+      "https://video-capture-kappa.vercel.app",
     ],
     methods: ["GET", "POST"],
   },
